@@ -46,6 +46,13 @@ public class Deck
      */
     public void shuffle() {
         // To be written
+        for(int i = 0; i < cards.size(); i++){
+            int j = Math.round((float)Math.random()*cards.size());
+            int temp = cards.set(i);
+            cards.set(i) = cards.set(j);
+            cards.set(j) = temp; 
+            
+        }
     }
     
     /**
