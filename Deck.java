@@ -48,9 +48,9 @@ public class Deck
         // To be written
         for(int i = 0; i < cards.size(); i++){
             int j = Math.round((float)Math.random()*cards.size());
-            int temp = cards.set(i);
-            cards.set(i) = cards.set(j);
-            cards.set(j) = temp; 
+            Card temp = cards.get(i);
+            cards.set(i, cards.get(j));
+            cards.set(j, temp); 
             
         }
     }
@@ -78,6 +78,9 @@ public class Deck
      */
     public Card dealCardFromDeck() {
         // To be written 
+        playOne = ;
+        playerTwo = ;
+        
         return null;
     }
     
