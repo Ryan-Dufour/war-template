@@ -78,10 +78,9 @@ public class Deck
      */
     public Card dealCardFromDeck() {
         // To be written 
-        playOne = ;
-        playerTwo = ;
-        
-        return null;
+        Card cardToRemove = cards.get(0);
+        cards.remove(0);
+        return cardToRemove;
     }
     
     /**
@@ -90,6 +89,7 @@ public class Deck
      */
     public void addCardToDeck(Card cardToAdd) {
         // To be written
+        cards.add(cardToAdd);
     }
     
 }
