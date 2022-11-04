@@ -7,6 +7,8 @@
  */
 public class War
 {
+    Deck[] players;
+    
     /**
      * Constructor for the game
      * Include your initialization here -- card decks, shuffling, etc
@@ -15,6 +17,15 @@ public class War
     public War()
     {
         // Initializations here...
+        Deck deck = new Deck();
+        deck.initializeNewDeck();
+        deck.shuffle();
+        Deck[] players = deck.dealDeck();
+        
+        
+        
+        
+    
         
         
         // ...then run the event loop
@@ -26,6 +37,10 @@ public class War
      * from the War flowchart you created for this game
      */
     public void runEventLoop() {
+        System.out.print("The war has begun");
+        d
+        
+    
 
     }
     
