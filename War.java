@@ -20,14 +20,8 @@ public class War
         Deck deck = new Deck();
         deck.initializeNewDeck();
         deck.shuffle();
-        Deck[] players = deck.dealDeck();
-        
-        
-        
-        
-    
-        
-        
+        players = deck.dealDeck();
+
         // ...then run the event loop
         this.runEventLoop();
     }
@@ -38,7 +32,23 @@ public class War
      */
     public void runEventLoop() {
         System.out.print("The war has begun");
-        d
+        
+        Card player1Card = players[0].dealCardFromDeck();
+        Card player2Card = players[1].dealCardFromDeck();
+        if (player1Card.getRank() > player2Card.getRank()){
+            players[0].addCardToDeck(player1Card);
+            players[0].addCardToDeck(player2Card);
+            
+        }
+        else if (player2Card.getRank()> player1Card.getRank()){
+            players[1].addCardToDeck(player2Card);
+            players[1].addCardToDeck(player1Card);
+            
+        }
+        else if(player1Card.getRank()= player2Card.getRank()){
+            
+        }
+        
         
     
 
