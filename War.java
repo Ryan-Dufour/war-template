@@ -8,7 +8,7 @@
 public class War
 {
     Deck[] players;
-    
+
     /**
      * Constructor for the game
      * Include your initialization here -- card decks, shuffling, etc
@@ -25,35 +25,47 @@ public class War
         // ...then run the event loop
         this.runEventLoop();
     }
-    
+
     /**
      * This is the game's event loop. The code in here should come
      * from the War flowchart you created for this game
      */
     public void runEventLoop() {
         System.out.print("The war has begun");
-        
+
         Card player1Card = players[0].dealCardFromDeck();
         Card player2Card = players[1].dealCardFromDeck();
         if (player1Card.getRank() > player2Card.getRank()){
             players[0].addCardToDeck(player1Card);
             players[0].addCardToDeck(player2Card);
-            
+
         }
         else if (player2Card.getRank()> player1Card.getRank()){
             players[1].addCardToDeck(player2Card);
             players[1].addCardToDeck(player1Card);
-            
+
         }
-        else if(player1Card.getRank()= player2Card.getRank()){
-            
+        else {
+            Deck deckWar = new Deck();
+            deckWar.addCardToDeck(player1Card);
+            deckWar.addCardToDeck(player2Card);
+            for(int i = 0; i<4; i++){
+                player1Card = players[0].dealCardFromDeck();
+                player2Card = players[1].dealCardFromDeck();
+                deckWar.addCardToDeck(player1Card);
+                deckWar.addCardToDeck(player2Card);
+                
+
+            }
+            while(i <4){
+                deckWar.addCardToDeck(player1Card);
+                
+            }
+
         }
-        
-        
-    
 
     }
-    
+
     /**
      * The main method is called when Java starts your program
      */
