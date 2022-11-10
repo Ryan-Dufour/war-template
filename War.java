@@ -54,16 +54,40 @@ public class War
                 player2Card = players[1].dealCardFromDeck();
                 deckWar.addCardToDeck(player1Card);
                 deckWar.addCardToDeck(player2Card);
-                
 
             }
-            while(i <4){
-                deckWar.addCardToDeck(player1Card);
-                
+
+            player1Card = players[0].dealCardFromDeck();
+            player2Card = players[1].dealCardFromDeck();
+
+            if (player1Card.getRank() > player2Card.getRank()){
+                players[0].addCardToDeck(player1Card);
+                players[0].addCardToDeck(player2Card);
+                Card  wins;
+                for (int i=0; i<4;i++){
+                    wins = deckWar.dealCardFromDeck();
+                }
+                wins = deckWar.dealCardFromDeck();
+
+                players[0].addCardToDeck(wins);
             }
+            else if(player2Card.getRank()>player1Card.getRank()){
+                players[1].addCardToDeck(player2Card);
+                players[1].addCardToDeck(player1Card);
+                Card  wins;
+                for (int i=0; i<4;i++){
+                    wins = deckWar.dealCardFromDeck();
+                }
+                wins = deckWar.dealCardFromDeck();
+
+                players[1].addCardToDeck(wins);
+            }
+            
+
+            }
+        if (Sytem.out.println(players[0].gerRank) > Sytem.out.println(players[1])
 
         }
-
     }
 
     /**
