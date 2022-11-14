@@ -82,14 +82,19 @@ public class War
 
                 players[1].addCardToDeck(wins);
             }
-            
-
-            }
-        if (Sytem.out.println(players[0].gerRank) > Sytem.out.println(players[1])
 
         }
-    }
+        
+        if (players[0].getDeckSize()> players[1].getDeckSize()){
+            System.out.println("The world is Player One's!");
 
+            
+        }
+        else {
+            System.out.println("The world is Player Two's");
+        }
+
+    }
     /**
      * The main method is called when Java starts your program
      */
