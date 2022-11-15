@@ -32,69 +32,69 @@ public class War
      */
     public void runEventLoop() {
         System.out.print("The war has begun");
+        for (int  c = 0; c <= 300 ; c++){
 
-        Card player1Card = players[0].dealCardFromDeck();
-        Card player2Card = players[1].dealCardFromDeck();
-        if (player1Card.getRank() > player2Card.getRank()){
-            players[0].addCardToDeck(player1Card);
-            players[0].addCardToDeck(player2Card);
-
-        }
-        else if (player2Card.getRank()> player1Card.getRank()){
-            players[1].addCardToDeck(player2Card);
-            players[1].addCardToDeck(player1Card);
-
-        }
-        else {
-            Deck deckWar = new Deck();
-            deckWar.addCardToDeck(player1Card);
-            deckWar.addCardToDeck(player2Card);
-            for(int i = 0; i<4; i++){
-                player1Card = players[0].dealCardFromDeck();
-                player2Card = players[1].dealCardFromDeck();
-                deckWar.addCardToDeck(player1Card);
-                deckWar.addCardToDeck(player2Card);
-
-            }
-
-            player1Card = players[0].dealCardFromDeck();
-            player2Card = players[1].dealCardFromDeck();
-
+            Card player1Card = players[0].dealCardFromDeck();
+            Card player2Card = players[1].dealCardFromDeck();
             if (player1Card.getRank() > player2Card.getRank()){
                 players[0].addCardToDeck(player1Card);
                 players[0].addCardToDeck(player2Card);
-                Card  wins;
-                for (int i=0; i<4;i++){
-                    wins = deckWar.dealCardFromDeck();
-                }
-                wins = deckWar.dealCardFromDeck();
+                System.out.println("player 1 wins");
 
-                players[0].addCardToDeck(wins);
             }
-            else if(player2Card.getRank()>player1Card.getRank()){
+            else if (player2Card.getRank()> player1Card.getRank()){
                 players[1].addCardToDeck(player2Card);
                 players[1].addCardToDeck(player1Card);
-                Card  wins;
-                for (int i=0; i<4;i++){
-                    wins = deckWar.dealCardFromDeck();
-                }
-                wins = deckWar.dealCardFromDeck();
 
-                players[1].addCardToDeck(wins);
+            }
+            else {
+                Deck deckWar = new Deck();
+                deckWar.addCardToDeck(player1Card);
+                deckWar.addCardToDeck(player2Card);
+                for(int i = 0; i<4; i++){
+                    player1Card = players[0].dealCardFromDeck();
+                    player2Card = players[1].dealCardFromDeck();
+                    deckWar.addCardToDeck(player1Card);
+                    deckWar.addCardToDeck(player2Card);
+
+                }
+
+                player1Card = players[0].dealCardFromDeck();
+                player2Card = players[1].dealCardFromDeck();
+
+                if (player1Card.getRank() > player2Card.getRank()){
+                    players[0].addCardToDeck(player1Card);
+                    players[0].addCardToDeck(player2Card);
+                    Card  wins;
+                    for (int i=0; i<4;i++){
+                        wins = deckWar.dealCardFromDeck();
+                        players[0].addCardToDeck(wins);
+                    }
+
+                }
+                else if(player2Card.getRank()>player1Card.getRank()){
+                    players[1].addCardToDeck(player2Card);
+                    players[1].addCardToDeck(player1Card);
+                    Card  wins;
+                    for (int i=0; i<4;i++){
+                        wins = deckWar.dealCardFromDeck();
+                        players[1].addCardToDeck(wins);
+                    }
+
+                }
+            }
+            if (players[0].getDeckSize() ==0 ){
+                System.out.println("Player 2 wins");
+
+            }
+            else if (players[1].getDeckSize() ==0 ) {
+                System.out.println("Player 1 wins");
+
             }
 
         }
-        
-        if (players[0].getDeckSize()> players[1].getDeckSize()){
-            System.out.println("The world is Player One's!");
-
-            
-        }
-        else {
-            System.out.println("The world is Player Two's");
-        }
-
     }
+
     /**
      * The main method is called when Java starts your program
      */
