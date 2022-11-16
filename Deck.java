@@ -78,9 +78,9 @@ public class Deck
      */
     public Card dealCardFromDeck() {
         // To be written 
-        Card cardToRemove = cards.get(0);
+        Card temp = cards.get(0);
         cards.remove(0);
-        return cardToRemove;
+        return temp;
     }
     
     /**

@@ -33,65 +33,104 @@ public class War
     public void runEventLoop() {
         System.out.print("The war has begun");
         for (int  c = 0; c <= 300 ; c++){
-
             Card player1Card = players[0].dealCardFromDeck();
             Card player2Card = players[1].dealCardFromDeck();
-            if (player1Card.getRank() > player2Card.getRank()){
-                players[0].addCardToDeck(player1Card);
-                players[0].addCardToDeck(player2Card);
-                System.out.println("player 1 wins");
+            System.out.println("players count your decks!");
+
+            if (players[0].getDeckSize() ==0 ){
+                System.out.println("Player 2 wins the war");
 
             }
-            else if (player2Card.getRank()> player1Card.getRank()){
-                players[1].addCardToDeck(player2Card);
-                players[1].addCardToDeck(player1Card);
+            else if (players[1].getDeckSize() ==0 ) {
+                System.out.println("Player 1 wins the war");
 
             }
-            else {
-                Deck deckWar = new Deck();
-                deckWar.addCardToDeck(player1Card);
-                deckWar.addCardToDeck(player2Card);
-                for(int i = 0; i<4; i++){
-                    player1Card = players[0].dealCardFromDeck();
-                    player2Card = players[1].dealCardFromDeck();
-                    deckWar.addCardToDeck(player1Card);
-                    deckWar.addCardToDeck(player2Card);
-
-                }
-
-                player1Card = players[0].dealCardFromDeck();
-                player2Card = players[1].dealCardFromDeck();
+            else{
 
                 if (player1Card.getRank() > player2Card.getRank()){
                     players[0].addCardToDeck(player1Card);
                     players[0].addCardToDeck(player2Card);
-                    Card  wins;
-                    for (int i=0; i<4;i++){
-                        wins = deckWar.dealCardFromDeck();
-                        players[0].addCardToDeck(wins);
-                    }
+                    System.out.println("player 1 wins");
 
                 }
-                else if(player2Card.getRank()>player1Card.getRank()){
+                else if (player2Card.getRank()> player1Card.getRank()){
                     players[1].addCardToDeck(player2Card);
-                    players[1].addCardToDeck(player1Card);
-                    Card  wins;
-                    for (int i=0; i<4;i++){
-                        wins = deckWar.dealCardFromDeck();
-                        players[1].addCardToDeck(wins);
-                    }
+                    players[1].addCardToDeck(player1Card);                                   
+                    System.out.println("player 2 wins");
 
                 }
-            }
-            if (players[0].getDeckSize() ==0 ){
-                System.out.println("Player 2 wins");
+                else {
+                    if (players[0].getDeckSize() <=3 ){
+
+                        System.out.println("player 2 wins the war by defalt");
+
+                    }
+                    else if (players[1].getDeckSize() <=3 ) {
+
+                        System.out.println("player 2 wins the war by defalt");
+
+                    }
+                    else{
+                        System.out.println("All out War!");
+
+                        Deck deckWar = new Deck();
+                        deckWar.addCardToDeck(player1Card);
+                        deckWar.addCardToDeck(player2Card);
+
+                        for(int i = 0; i<4; i++){
+                            if (players[0].getDeckSize() ==0 ){
+                                System.out.println("Player 2 wins the war");
+
+                            }
+                            else if (players[1].getDeckSize() ==0 ) {
+                                System.out.println("Player 1 wins the war");
+
+                            }
+                            player1Card = players[0].dealCardFromDeck();
+                            player2Card = players[1].dealCardFromDeck();
+                            deckWar.addCardToDeck(player1Card);
+                            deckWar.addCardToDeck(player2Card);
+
+                        }
+
+                        player1Card = players[0].dealCardFromDeck();
+                        player2Card = players[1].dealCardFromDeck();
+
+                        if (player1Card.getRank() > player2Card.getRank()){
+                            players[0].addCardToDeck(player1Card);
+                            players[0].addCardToDeck(player2Card);
+                            Card  wins;
+                            for (int i=0; i<4;i++){
+                                wins = deckWar.dealCardFromDeck();
+                                players[0].addCardToDeck(wins);
+                            }
+                            System.out.println("player 1 wins the war");
+
+                        }
+                        else if(player2Card.getRank()>player1Card.getRank()){
+                            players[1].addCardToDeck(player2Card);
+                            players[1].addCardToDeck(player1Card);
+                            Card  wins;
+                            for (int i=0; i<4;i++){
+                                wins = deckWar.dealCardFromDeck();
+                                players[1].addCardToDeck(wins);
+
+                            }
+                            System.out.println("player 2 wins the war");
+
+                        }
+                    }
+                }
+                if (players[0].getDeckSize() ==0 ){
+                    System.out.println("Player 2 wins the Game");
+
+                }
+                else if (players[1].getDeckSize() ==0 ) {
+                    System.out.println("Player 1 wins the Game");
+
+                }
 
             }
-            else if (players[1].getDeckSize() ==0 ) {
-                System.out.println("Player 1 wins");
-
-            }
-
         }
     }
 
@@ -99,6 +138,7 @@ public class War
      * The main method is called when Java starts your program
      */
     public static void main(String[] args) {
+        System.out.print("\u000C");
         War war = new War();
     }
 
