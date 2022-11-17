@@ -38,7 +38,9 @@ public class Deck
      * @returns Number of cards in the deck
      */
     public int getDeckSize() {
+        
         return cards.size();
+
     }
     
     /**
@@ -47,12 +49,13 @@ public class Deck
     public void shuffle() {
         // To be written
         for(int i = 0; i < cards.size(); i++){
-            int j = Math.round((float)Math.random()*cards.size());
+            int j = Math.round((int)Math.random()*cards.size());
             Card temp = cards.get(i);
             cards.set(i, cards.get(j));
-            cards.set(j, temp); 
-            
+           cards.set(j, temp); 
+              
         }
+        
     }
     
     /**

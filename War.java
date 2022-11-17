@@ -33,19 +33,22 @@ public class War
     public void runEventLoop() {
         System.out.print("The war has begun");
         for (int  c = 0; c <= 300 ; c++){
-            Card player1Card = players[0].dealCardFromDeck();
-            Card player2Card = players[1].dealCardFromDeck();
+
             System.out.println("players count your decks!");
 
             if (players[0].getDeckSize() ==0 ){
-                System.out.println("Player 2 wins the war");
+                System.out.println("Player 2 wins the game");
+                break;
 
             }
             else if (players[1].getDeckSize() ==0 ) {
-                System.out.println("Player 1 wins the war");
+                System.out.println("Player 1 wins the game");
+                break;
 
             }
             else{
+                Card player1Card = players[0].dealCardFromDeck();
+                Card player2Card = players[1].dealCardFromDeck();
 
                 if (player1Card.getRank() > player2Card.getRank()){
                     players[0].addCardToDeck(player1Card);
@@ -79,11 +82,13 @@ public class War
 
                         for(int i = 0; i<4; i++){
                             if (players[0].getDeckSize() ==0 ){
-                                System.out.println("Player 2 wins the war");
+                                System.out.println("Player 2 wins the game");
+                                break;
 
                             }
                             else if (players[1].getDeckSize() ==0 ) {
-                                System.out.println("Player 1 wins the war");
+                                System.out.println("Player 1 wins the game");
+                                break;
 
                             }
                             player1Card = players[0].dealCardFromDeck();
@@ -123,10 +128,12 @@ public class War
                 }
                 if (players[0].getDeckSize() ==0 ){
                     System.out.println("Player 2 wins the Game");
+                    break;
 
                 }
                 else if (players[1].getDeckSize() ==0 ) {
                     System.out.println("Player 1 wins the Game");
+                    break;
 
                 }
 
